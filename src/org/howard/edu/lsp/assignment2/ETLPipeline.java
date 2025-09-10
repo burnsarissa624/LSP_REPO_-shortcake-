@@ -119,8 +119,26 @@ private static java.util.List<String[]> transform(java.util.List<String[]> input
     return out;
 }
 
-    public static void main(String[] args) {
-        System.out.println("ETL skeleton started.");
+   public static void main(String[] args) {
+    try {
+        java.util.List<String[]> rows = extract(INPUT);
+        java.util.List<String[]> transformed = transform(rows);
+        load(OUTPUT, transformed);
+        printSummary(OUTPUT);
+    } catch (MissingFileException mfe) {
+        System.err.println("[ERROR] " + mfe.getMessage());
+    } catch (Exception e) {
+        System.err.println("[ERROR] Unexpected failure: " + e.getMessage());
+        e.printStackTrace(System.err);
     }
+}
+private static void printSummary(java.nio.file.Path outputPath) {
+    System.out.println("==== ETL Run Summary ====");
+    System.out.println("Rows read (excluding header): " + rowsRead);
+    System.out.println("Rows transformed: " + rowsTransformed);
+    System.out.println("Rows skipped: " + rowsSkipped);
+    System.out.println("Output written to: " + outputPath);
+}
+
 }
 
