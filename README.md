@@ -1,7 +1,7 @@
 # CSCI 363/540 – Assignment 1: CSV ETL Pipeline (Java)
 
 ## Project Structure
-src/
+'''src/
 └── 
 org/
     
@@ -79,4 +79,5 @@ What I used: the suggestion to use BigDecimal.setScale(2, RoundingMode.HALF_UP) 
 
 # External Sources 
 I didn’t use outside websites besides Java’s own documentation. If I add anything later, I will cite it.
+
 
