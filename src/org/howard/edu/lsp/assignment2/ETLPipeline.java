@@ -47,6 +47,13 @@ private static void load(java.nio.file.Path outputPath, java.util.List<String[]>
         }
     }
 }
+// --- Helper: compute price range ---
+private static String computePriceRange(java.math.BigDecimal price) {
+    if (price.compareTo(new java.math.BigDecimal("10.00")) <= 0) return "Low";
+    if (price.compareTo(new java.math.BigDecimal("100.00")) <= 0) return "Medium";
+    if (price.compareTo(new java.math.BigDecimal("500.00")) <= 0) return "High";
+    return "Premium";
+}
 
     public static void main(String[] args) {
         System.out.println("ETL skeleton started.");
