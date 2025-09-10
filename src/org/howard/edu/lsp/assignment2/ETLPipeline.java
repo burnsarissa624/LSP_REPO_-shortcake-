@@ -32,6 +32,21 @@ private static java.util.List<String[]> extract(java.nio.file.Path inputPath)
     rowsRead = Math.max(0, rows.size() - 1); // exclude header
     return rows;
 }
+// --- LOAD ---
+private static void load(java.nio.file.Path outputPath, java.util.List<String[]> rows)
+        throws java.io.IOException {
+    java.nio.file.Files.createDirectories(outputPath.getParent());
+    try (java.io.BufferedWriter bw = java.nio.file.Files.newBufferedWriter(
+            outputPath,
+            java.nio.charset.StandardCharsets.UTF_8,
+            java.nio.file.StandardOpenOption.CREATE,
+            java.nio.file.StandardOpenOption.TRUNCATE_EXISTING)) {
+        for (String[] r : rows) {
+            bw.write(String.join(",", r));
+            bw.newLine();
+        }
+    }
+}
 
     public static void main(String[] args) {
         System.out.println("ETL skeleton started.");
