@@ -54,6 +54,70 @@ private static String computePriceRange(java.math.BigDecimal price) {
     if (price.compareTo(new java.math.BigDecimal("500.00")) <= 0) return "High";
     return "Premium";
 }
+// --- TRANSFORM ---
+private static java.util.List<String[]> transform(java.util.List<String[]> input) {
+    java.util.List<String[]> out = new java.util.ArrayList<>();
+    // Always include required header
+    out.add(new String[] { "ProductID", "Name", "Price", "Category", "PriceRange" });
+
+    if (input == null || input.isEmpty()) return out;
+
+    for (int i = 1; i < input.size(); i++) {
+        String[] row = input.get(i);
+        if (row == null || row.length < 4) { rowsSkipped++; continue; }
+
+        String productIdStr = row[0].trim();
+        String name        = row[1].trim();
+        String priceStr    = row[2].trim();
+        String category    = row[3].trim();
+
+        if (productIdStr.isEmpty() || name.isEmpty() || priceStr.isEmpty() || category.isEmpty()) {
+            rowsSkipped++; continue;
+        }
+
+        int productId;
+        java.math.BigDecimal price;
+        try {
+            productId = Integer.parseInt(productIdStr);
+            price = new java.math.BigDecimal(priceStr);
+        } catch (NumberFormatException nfe) {
+            rowsSkipped++; continue;
+        }
+
+        // 1) Uppercase name
+        String finalName = name.toUpperCase();
+
+        // 2) Discount if Electronics (10%), then round HALF_UP to 2 decimals
+        String originalCategory = category;
+        java.math.BigDecimal finalPrice = price;
+        if ("Electronics".equalsIgnoreCase(category)) {
+            finalPrice = price.multiply(new java.math.BigDecimal("0.90"));
+        }
+        finalPrice = finalPrice.setScale(2, java.math.RoundingMode.HALF_UP);
+
+        // 3) Recategorize if > 500 after discount and originally Electronics
+        String finalCategory = category;
+        if ("Electronics".equalsIgnoreCase(originalCategory)
+                && finalPrice.compareTo(new java.math.BigDecimal("500.00")) > 0) {
+            finalCategory = "Premium Electronics";
+        } else if ("electronics".equalsIgnoreCase(finalCategory)) {
+            finalCategory = "Electronics"; // normalize casing
+        }
+
+        // 4) Price range from final price
+        String priceRange = computePriceRange(finalPrice);
+
+        out.add(new String[] {
+            String.valueOf(productId),
+            finalName,
+            finalPrice.toPlainString(),
+            finalCategory,
+            priceRange
+        });
+        rowsTransformed++;
+    }
+    return out;
+}
 
     public static void main(String[] args) {
         System.out.println("ETL skeleton started.");
