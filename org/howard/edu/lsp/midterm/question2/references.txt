@@ -1,0 +1,19 @@
+References for Question 2 — AreaCalculator (Midterm Exam)
+Course: Large Scale Programming, Howard University
+Instructor: Prof. Bernard Woolfolk
+
+1. Java SE 17 Documentation — Math and Exception Handling  
+   https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Math.html
+
+2. Oracle Java Tutorials — Method Overloading  
+   https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
+
+3. Example prompts consulted (ChatGPT, Oct 2025) for brief syntax clarification:  
+   • “Review correct use of method overloading in Java”  
+   • “Explain syntax for throwing IllegalArgumentException”  
+   • “Confirm expected output format for area calculations”
+
+4. Howard University lecture slides on Object-Oriented Design — Week 6  
+   Topics: Method Overloading, Static Methods, Exception Handling
+
+No direct AI-generated code was copied; responses were used for conceptual review only. 
