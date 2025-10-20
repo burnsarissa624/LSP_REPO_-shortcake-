@@ -1,0 +1,7 @@
+ProductID,Name,Price,Category
+1,Book,12.99,EDUCATION
+2,Laptop,999.99,ELECTRONICS
+3,Notebook,2.49,STATIONERY
+4,Headphones,199.99,ELECTRONICS
+5,Pencil,0.99,STATIONERY
+6,Smartphone,699.49,ELECTRONICS
