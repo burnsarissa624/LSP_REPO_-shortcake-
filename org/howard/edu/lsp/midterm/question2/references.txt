@@ -13,5 +13,5 @@ Instructor: Prof. Bernard Woolfolk
    • “Explain syntax for throwing IllegalArgumentException”  
    • “Confirm expected output format for area calculations”
 
-
+No direct AI-generated code was copied; responses were used for conceptual review only. 
 
