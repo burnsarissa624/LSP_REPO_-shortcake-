@@ -13,5 +13,17 @@ Instructor: Prof. Bernard Woolfolk
    • “Explain syntax for throwing IllegalArgumentException”  
    • “Confirm expected output format for area calculations”
 
+Review correct use of method overloading in Java.
+Output:
+Method overloading lets you define several methods with the same name as long as their parameter lists differ. In your AreaCalculator, you can have four versions of the area() method—one each for circle, rectangle, triangle, and square. This approach keeps related operations grouped under one concept instead of using separate names like circleArea() or rectangleArea().
+
+"Clarify design of static utility classes."
+Output:
+For a class that only performs calculations, declare all methods as static and avoid creating objects. You can call them directly using the class name, like AreaCalculator.area(5.0, 2.0). This makes the class behave like a small utility similar to Math.
+
+Explain why floating-point results show many decimals.
+Output:
+Java uses binary floating-point numbers, so values like π aren’t stored exactly. That’s why results such as 28.274333882308138 appear.
+
 No direct AI-generated code was copied; responses were used for conceptual review only. 
 
