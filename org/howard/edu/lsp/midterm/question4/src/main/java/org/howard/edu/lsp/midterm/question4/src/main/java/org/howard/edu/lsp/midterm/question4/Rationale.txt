@@ -3,5 +3,5 @@ Device is defined as an abstract class because it provides shared state and beha
 
 The Networked and BatteryPowered interfaces add optional behaviors without forcing unrelated classes to inherit them, demonstrating composition through interface implementation.
 
-This is not true multiple inheritance—Java allows one superclass but multiple interfaces—so this design safely combines abstraction and shared behavior.
+This is not true multiple inheritance ; Java allows one superclass but multiple interfaces—so this design safely combines abstraction and shared behavior.
 
