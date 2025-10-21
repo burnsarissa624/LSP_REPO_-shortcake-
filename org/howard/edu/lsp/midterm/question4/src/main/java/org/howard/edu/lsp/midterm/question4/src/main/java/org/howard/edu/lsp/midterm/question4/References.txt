@@ -1,0 +1,60 @@
+Session 1:
+User:
+How do I organize my Question 4 package for the midterm?
+
+ChatGPT:
+Create the folder path:
+src/main/java/org/howard/edu/lsp/midterm/question4
+Place all .java files there. Each should start with:
+package org.howard.edu.lsp.midterm.question4;
+References for Question 4
+---
+
+Session 2:
+Session 1:
+User:
+How do I organize my Question 4 package for the midterm?
+
+ChatGPT:
+Create the folder path:
+src/main/java/org/howard/edu/lsp/midterm/question4
+Place all .java files there. Each should start with:
+package org.howard.edu.lsp.midterm.question4;
+
+---
+
+Session 2:
+User:
+My compiler says “cannot find symbol setConnected(boolean).” What should I do?
+
+ChatGPT:
+Ensure the method in Device.java is declared as:
+protected void setConnected(boolean connected) {
+    this.connected = connected;
+}
+Then subclasses can safely call it from connect() and disconnect().
+
+---
+
+Session 3:
+User:
+What should DoorLock, Thermostat, and Camera each extend or implement?
+
+ChatGPT:
+• DoorLock – extends Device, implements Networked and BatteryPowered  
+• Thermostat – extends Device, implements Networked  
+• Camera – extends Device, implements Networked and BatteryPowered
+
+All constructors must call super(id, location) and validate inputs.
+
+---
+
+Session 4:
+User:
+How do I validate the battery percentage?
+
+ChatGPT:
+Use a setter that checks bounds:
+```java
+if (percent < 0 || percent > 100)
+    throw new IllegalArgumentException("battery 0..100");
