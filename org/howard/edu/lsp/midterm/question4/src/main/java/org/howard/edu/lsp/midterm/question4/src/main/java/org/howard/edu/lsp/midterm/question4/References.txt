@@ -1,25 +1,16 @@
 Session 1:
 User:
-How do I organize my Question 4 package for the midterm?
-
-ChatGPT:
-Create the folder path:
-src/main/java/org/howard/edu/lsp/midterm/question4
-Place all .java files there. Each should start with:
-package org.howard.edu.lsp.midterm.question4;
-References for Question 4
+Why is it important to make Device abstract instead of creating it as a normal class?
+Output:
+Making Device abstract helps define the shared structure for all devices while preventing it from being used on its own. Since a generic device isn’t meant to exist in the real system, an abstract class allows subclasses like DoorLock, Camera, and Thermostat to reuse its fields and methods while still defining their own details. It keeps the code cleaner and ensures that only real, functional device types can be created in the program.
 ---
 
-Session 2:
-Session 1:
-User:
-How do I organize my Question 4 package for the midterm?
 
+User:
+How should I structure and test my Main class for Question 4 to make sure all the methods in my package work properly?
 ChatGPT:
-Create the folder path:
-src/main/java/org/howard/edu/lsp/midterm/question4
-Place all .java files there. Each should start with:
-package org.howard.edu.lsp.midterm.question4;
+You should keep your Main class inside the same package as your other classes for Question 4. The purpose of the Main class is to act as a simple test driver — meaning it’s where you create objects from your other classes and call their methods to confirm everything behaves as expected.
+Include clear print statements so you can see the results of each method when you run the program. This helps verify that your logic, relationships between classes, and any inheritance or composition features are all working correctly.
 
 ---
 
